@@ -4,6 +4,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.test.AndroidTestCase;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -15,6 +19,8 @@ public class ShowMenuFood extends AppCompatActivity {
     private Spinner deskSpinner;
     private ListView foodListView;
 
+    private String officerString, deskString, orderFoodString, amountString;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,9 +29,40 @@ public class ShowMenuFood extends AppCompatActivity {
         //Bind Widget
         bindWidget();
 
+        //ShoView
+        showView();
+
+        //Create Desk Spinner
+        createDeskSpinner();
+
         //Create Food ListView
         createFoodListView();
+    }
 
+    private void createDeskSpinner() {
+
+        final String[] deskStrings = {"โต๊ะที่ 1", "โต๊ะที่ 2", "โต๊ะที่ 3", "โต๊ะที่ 4", "โต๊ะที่ 5", "โต๊ะที่ 6", "โต๊ะที่ 7", "โต๊ะที่ 8", "โต๊ะที่ 9"};
+        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, deskStrings);
+        deskSpinner.setAdapter(stringArrayAdapter);
+
+        deskSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                deskString = deskStrings[position];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                deskString = deskStrings[0];
+            }
+        });
+
+    }
+
+    private void showView() {
+
+        officerString = getIntent().getStringExtra("Officer");
+        showOfficerTextView.setText(officerString);
 
     }
 

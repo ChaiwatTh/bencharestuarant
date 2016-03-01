@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
             //1. Create InputStream
             InputStream inputStream = null;
             String[] urlJSON = new String[2];
-            urlJSON[0] = "http://swiftcodingthai.com/29feb/php_get_data.php";
+            urlJSON[0] = "http://swiftcodingthai.com/29feb/php_get_data_bird.php";
             urlJSON[1] = "http://swiftcodingthai.com/29feb/php_get_food.php";
             HttpPost httpPost = null;
 
