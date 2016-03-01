@@ -25,6 +25,11 @@ public class MyManage {
     public static final String colum_price = "Price";
     public static final String colum_source = "Source";
 
+    public static final String order_table = "orderTABLE";
+    public static final String colum_officer = "Officer";
+    public static final String colum_desk = "Desk";
+    public static final String colum_amount = "Amount";
+
     public MyManage(Context context) {
 
         //Create Database
