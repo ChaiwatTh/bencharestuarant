@@ -49,7 +49,8 @@ public class ShowMenuFood extends AppCompatActivity {
         }//for
         cursor.close();
 
-
+        FoodAdapter foodAdapter = new FoodAdapter(ShowMenuFood.this, foodStrings, priceStrings, sourceStrings);
+        foodListView.setAdapter(foodAdapter);
 
     }//Create Food ListView
 
